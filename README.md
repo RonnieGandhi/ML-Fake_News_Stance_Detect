@@ -3,7 +3,7 @@ Fake news detection with stance in Consideration
 
 # Plan
 
-## Stage 1 (Stance Detection) (Done)
+## Stage 1 (Stance Detection)
 * http://www.aclweb.org/anthology/N16-1138
 * https://www.ijcai.org/proceedings/2017/0557.pdf
 * http://www.fakenewschallenge.org/
