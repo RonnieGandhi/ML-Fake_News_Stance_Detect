@@ -27,7 +27,7 @@ learning model for fake news identification becomes very important.
 9. XG Boost Classifier
 10. Linear Discriminant Analysis
 
-![alt text](basemodels.png)
+![alt text](comparison.png)
 
 # Try more than one models
 
