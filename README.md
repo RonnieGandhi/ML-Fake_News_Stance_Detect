@@ -32,6 +32,7 @@ learning model for fake news identification becomes very important.
 # Try more than one models
 
 ● Single Model: < 20% accuracy on predictions of “agree” or “disagree” stances.
+
 ● Running models on sub-categories yields better predictions on “agree” and “disagree” stances 
 
 Therefore, two types of model combinations are considered. 
@@ -39,6 +40,7 @@ Therefore, two types of model combinations are considered.
 ● 2-model Combination:
   M1 - Classify related and unrelated stances
   M2 - For related stances, classify agree, disagree, and discuss
+  
 ● 3-model Combination:
   M1 - Classify related and unrelated stances
   M2 - For related stances, determine whether the stance is neural(discuss) or not
