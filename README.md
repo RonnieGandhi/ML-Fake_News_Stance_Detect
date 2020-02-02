@@ -1,9 +1,51 @@
 # ML-Fake_News_Stance_Detect
-Fake news detection with stance in Consideration
+Fake news detection with stance in Consideration [Basic idea from Paper](http://cs229.stanford.edu/proj2017/final-reports/5244160.pdf) [It's Report](http://cs229.stanford.edu/proj2017/final-posters/5148004.pdf)
 
-# Plan
+# Problem
+Fake news is deliberate misinformation fabricated with intention of
+deception, misleading, grabbing attention or even financial and political
+gain. Recent development of machine learning provides a possible solution
+to automate this process. However, accurately and repeatedly identifying
+fake news is still proven difficult due to the complex nature of human
+language. With the popularity of online media and detrimental effect of fake
+news on many aspects of our society, developing a reliable machine
+learning model for fake news identification becomes very important.
 
-## Stage 1 (Stance Detection)
+# Baseline implementation with simple machine learning models
+
+## Datasets
+* https://github.com/FakeNewsChallenge/fnc-1
+
+1. Logistic Regression 
+2. K Nearest Classifier
+3. Support Vector Machine Classifier
+4. Qudratic Discriminant Analysis
+5. Random Forest Classifier
+6. Adaboost Classifier
+7. SGD Classifier
+8. Decision Tree Classifier
+9. XG Boost Classifier
+10. Linear Discriminant Analysis
+
+![alt text](basemodels.png)
+
+# Try more than one models
+
+● Single Model: < 20% accuracy on predictions of “agree” or “disagree” stances.
+● Running models on sub-categories yields better predictions on “agree” and “disagree” stances 
+
+Therefore, two types of model combinations are considered. 
+
+● 2-model Combination:
+  M1 - Classify related and unrelated stances
+  M2 - For related stances, classify agree, disagree, and discuss
+● 3-model Combination:
+  M1 - Classify related and unrelated stances
+  M2 - For related stances, determine whether the stance is neural(discuss) or not
+  M3 - For non-neural stances, determine whether the stance is agree or disagree.
+
+# Stance Detection with Deep Learning Model
+
 * http://www.aclweb.org/anthology/N16-1138
 * https://www.ijcai.org/proceedings/2017/0557.pdf
 * http://www.fakenewschallenge.org/
@@ -24,30 +66,26 @@ For example, if several high-credibility news outlets run stories that Disagree 
 
 In this way, the various stances (or lack of a stance) news organizations take on a claim, as determined by an automatic stance detection system, could be combined to tentatively label the claim as True or False. While crude, this type of fully-automated approach to truth labeling could serve as a starting point for human fact checkers, e.g. to prioritize which claims are worth further investigation.
 
-### Datasets
+## Datasets
 * https://github.com/FakeNewsChallenge/fnc-1
 
 
-## Stage 2 (Text body summarization + Similar or Not)
-My idea here is to run the body of a news through text summarization model that will produce a headline.
+# Is Title matching with context of body
+Idea here is to run the body of a news through text summarization model that will produce a headline.
 Then run text similarity between the given headline and the summarization. We should use some kind of transfer learning here.
 ### Dataset
 * https://github.com/dhwajraj/deep-siamese-text-similarity
 * https://www.kaggle.com/sunnysai12345/news-summary
 
-## Stage 3 (Irony or not) (Used as a feature)
+# Irony (Used as a feature)
 A genuine news article should not be a irony (or should not contain mainly irony sentences)
-### Dataset
+## Dataset
 * https://competitions.codalab.org/competitions/17468
 
-## Stage 4 (Fake news classification ( Fake or Not))
+# Fake news classification ( Fake or Not))
 ## Datasets
 * https://www.kaggle.com/jruvika/fake-news-detection/data
 * https://www.kaggle.com/mrisdal/fake-news/data
 * https://github.com/several27/FakeNewsCorpus
 
-## Stage 5 (Topic classification based on heading (done), topic classification based on the summary, topic modeling of the content)
-
-The main purpose of this model is to classify the topics into 4 categories (more info at https://www.kaggle.com/uciml/news-aggregator-dataset)
-We can run the same classificator on the summary (the classificator was trained on short texts, but should experiment with longer). If we get different topics the news might not be trustworthy but a clickbait. We can run also unsupervised machine learning (LDA) to get topics.
 
